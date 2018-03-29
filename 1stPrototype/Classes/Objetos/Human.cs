@@ -159,6 +159,10 @@ namespace _1stPrototype.Classes.Objetos
             newHuman.mfltSaude = 0.50f + (float)(DNA.obtemInfluenciadorSaude(newHuman.mdnaGenoma) * (0.3 / 1.9)) + (new Random().Next(0, 21) / 100); // Saúde. Default + Genetico + Natureza.
             newHuman.mfltBeleza = 0.40f + (float)(DNA.obtemInfluenciadorBeleza(newHuman.mdnaGenoma) * (0.4 / 1.9)) + (new Random().Next(0, 21) / 100); // Bebes são bonitos. Aplica Genetica + Naturza.
 
+            // ------- EM DESENVOLVIMENTO
+            // TODO: TERMINAR.
+
+
             return newHuman;
         }
 
