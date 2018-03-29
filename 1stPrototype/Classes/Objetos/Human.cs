@@ -159,9 +159,33 @@ namespace _1stPrototype.Classes.Objetos
             newHuman.mfltSaude = 0.50f + (float)(DNA.obtemInfluenciadorSaude(newHuman.mdnaGenoma) * (0.3 / 1.9)) + (new Random().Next(0, 21) / 100); // Saúde. Default + Genetico + Natureza.
             newHuman.mfltBeleza = 0.40f + (float)(DNA.obtemInfluenciadorBeleza(newHuman.mdnaGenoma) * (0.4 / 1.9)) + (new Random().Next(0, 21) / 100); // Bebes são bonitos. Aplica Genetica + Naturza.
 
+            // Bebes tem poucas/nenhuma proeficiencia.
+            newHuman.mfltProfLutaCorporal = 0.00f; // É só um bebe.
+            newHuman.mfltProfArmasBrancas = 0.00f; // É só um bebe.
+            newHuman.mfltProfArmasFogo = 0.00f; // É só um bebe.
+            newHuman.mfltProfCarros = 0.00f; // É só um bebe.
+            newHuman.mfltProfMotos = 0.00f; // É só um bebe.
+            newHuman.mfltProfTecnologia = 0.00f; // É só um bebe.
+            newHuman.mfltProfSocial = (float)(DNA.obtemInfluenciadorSocial(newHuman.mdnaGenoma) * (0.02 / 1.9)); // Pode ter alguma, mas muito pouco.
+            newHuman.mfltProfArtistica = (float)(DNA.obtemInfluenciadorDomArtistico(newHuman.mdnaGenoma) * (0.01 / 1.9)); // Pode ter alguma, mas muito pouco.
+            newHuman.mfltProfMusical = 0.00f; // É só um bebe.
+            newHuman.mfltProfMatematica = 0.00f; // É só um bebe.
+            newHuman.mfltProfPesquisa = 0.00f; // É só um bebe.
+            newHuman.mfltProfEspacial = 0.00f; // É só um bebe.
+
+            // Bebes tem poucas tendencias genéticas. O objetivo destes campos é aprender com o jogador para a IA trabalhar melhor quando precisar.
+            newHuman.mfltTendTrapaca = (float)(0.05 - (DNA.obtemInfluenciadorDedicacao(newHuman.mdnaGenoma) * (0.05 / 1.9))); // Muito pouco, pela genética.
+            newHuman.mfltTendRoubo = (float)(DNA.obtemInfluenciadorCriminalidade(newHuman.mdnaGenoma) * (0.05 / 1.9)); // Muito pouco, pela genética.
+            newHuman.mfltTendDrogasLeves = (float)(DNA.obtemInfluenciadorDepressao(newHuman.mdnaGenoma) * (0.05 / 1.9)); // Muito pouco, pela genética.
+            newHuman.mfltTendDrogasPesadas = (float)(DNA.obtemInfluenciadorDepressao(newHuman.mdnaGenoma) * (0.03 / 1.9)); // Muito pouco, pela genética.
+            newHuman.mfltTendEstudar = (float)(DNA.obtemInfluenciadorEstudo(newHuman.mdnaGenoma) * (0.10 / 1.9)); // Muito pouco, pela genética.
+            newHuman.mfltTendFesta = (float)(DNA.obtemInfluenciadorSocial(newHuman.mdnaGenoma) * (0.08 / 1.9)); // Muito pouco, pela genética.
+            newHuman.mfltTendSuicidio = (float)(DNA.obtemInfluenciadorDepressao(newHuman.mdnaGenoma) * (0.06 / 1.9)); // Muito pouco, pela genética.
+            newHuman.mfltTendDecisaoEmocional = (float)(0.06 - (DNA.obtemInfluenciadorEstabilidadeEmocional(newHuman.mdnaGenoma) * (0.06 / 1.9))); // Muito pouco, pela genética.
+            newHuman.mfltTendPreguica = (float)(0.07 - (DNA.obtemInfluenciadorDedicacao(newHuman.mdnaGenoma) * (0.07 / 1.9))); // Muito pouco, pela genética.
+
             // ------- EM DESENVOLVIMENTO
             // TODO: TERMINAR.
-
 
             return newHuman;
         }
