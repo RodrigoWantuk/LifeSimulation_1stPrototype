@@ -6,3 +6,12 @@ C:\source code\c#\etc\1stPrototype\1stPrototype\obj\Debug\_1stPrototype.Properti
 C:\source code\c#\etc\1stPrototype\1stPrototype\obj\Debug\1stPrototype.csproj.GenerateResource.Cache
 C:\source code\c#\etc\1stPrototype\1stPrototype\obj\Debug\1stPrototype.exe
 C:\source code\c#\etc\1stPrototype\1stPrototype\obj\Debug\1stPrototype.pdb
+C:\Users\Rodrigo\Documents\Dev\1st_Prototype\Git\1stPrototype\obj\Debug\1stPrototype.csprojResolveAssemblyReference.cache
+C:\Users\Rodrigo\Documents\Dev\1st_Prototype\Git\1stPrototype\obj\Debug\_1stPrototype.Properties.Resources.resources
+C:\Users\Rodrigo\Documents\Dev\1st_Prototype\Git\1stPrototype\obj\Debug\1stPrototype.csproj.GenerateResource.Cache
+C:\Users\Rodrigo\Documents\Dev\1st_Prototype\Git\1stPrototype\obj\Debug\1stPrototype.csproj.CoreCompileInputs.cache
+C:\Users\Rodrigo\Documents\Dev\1st_Prototype\Git\1stPrototype\obj\Debug\1stPrototype.exe
+C:\Users\Rodrigo\Documents\Dev\1st_Prototype\Git\1stPrototype\obj\Debug\1stPrototype.pdb
+C:\Users\Rodrigo\Documents\Dev\1st_Prototype\Git\1stPrototype\bin\Debug\1stPrototype.exe.config
+C:\Users\Rodrigo\Documents\Dev\1st_Prototype\Git\1stPrototype\bin\Debug\1stPrototype.exe
+C:\Users\Rodrigo\Documents\Dev\1st_Prototype\Git\1stPrototype\bin\Debug\1stPrototype.pdb
