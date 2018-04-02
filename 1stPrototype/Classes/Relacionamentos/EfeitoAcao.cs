@@ -10,6 +10,6 @@ namespace _1stPrototype.Classes.Relacionamentos
     public class EfeitoAcao
     {
         public enumEfeitoAcao efeito;
-        public double teor;
+        public float teor; // Teor total a ser aplicado.
     }
 }

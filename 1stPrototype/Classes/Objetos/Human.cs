@@ -11,13 +11,13 @@ namespace _1stPrototype.Classes.Objetos
 {
     public class Human
     {
-        public static int IDADE_CRIANCA_DIAS = 5 * 365;
-        public static int IDADE_PRE_ADOLESCENTE_DIAS = 10 * 365;
-        public static int IDADE_ADOLESCENTE_DIAS = 14 * 365;
-        public static int IDADE_ADULTO_DIAS = 20 * 365;
-        public static int IDADE_MEIA_IDADE_DIAS = 50 * 365;
-        public static int IDADE_IDOSO_DIAS = 70 * 365;
-        public static int IDADE_INCAPAZ_DIAS = 90 * 365;
+        public static readonly int IDADE_CRIANCA_DIAS = 5 * 365;
+        public static readonly int IDADE_PRE_ADOLESCENTE_DIAS = 10 * 365;
+        public static readonly int IDADE_ADOLESCENTE_DIAS = 14 * 365;
+        public static readonly int IDADE_ADULTO_DIAS = 20 * 365;
+        public static readonly int IDADE_MEIA_IDADE_DIAS = 50 * 365;
+        public static readonly int IDADE_IDOSO_DIAS = 70 * 365;
+        public static readonly int IDADE_INCAPAZ_DIAS = 90 * 365;
 
         private List<ifaceFaseVidaAlterada> processaCrianca; // Eventos disparados ao atingir a fase "Criança".
         private List<ifaceFaseVidaAlterada> processaPreAdolescente; // Eventos disparados ao atingir a fase "Pre Adolescente".
@@ -27,6 +27,8 @@ namespace _1stPrototype.Classes.Objetos
         private List<ifaceFaseVidaAlterada> processaIdoso; // Eventos disparados ao atingir a fase "Idoso".
         private List<ifaceFaseVidaAlterada> processaIncapaz; // Eventos disparados ao atingir a fase "Incapaz".
 
+        private ifaceAcao iacEmAndamento; // Indica a ação que o humano está executando neste momento.
+        private long lngFimAcaoTick; // Indica em qual server-tick a ação acima estará concluida.
 
         private int mintDiaNascimento; // Dia do Nascimento.
         private int mintIdade; // Idade atual em dias.
@@ -134,6 +136,7 @@ namespace _1stPrototype.Classes.Objetos
 
             newHuman.blnVivo = true; // Nasce vivo.
             newHuman.efvFaseVida = enumFaseVida.RECEM_NASCIDO; // Nascimento = recem nascido.
+            newHuman.iacEmAndamento = null; // Não executa nenhuma ação.
 
             if (surnamePai)
                 newHuman.mstrSobrenome = hmnPai.mstrSobrenome;
