@@ -5,13 +5,35 @@ using System.Text;
 using System.Threading.Tasks;
 using _1stPrototype.Enumeradores;
 using _1stPrototype.Classes.Relacionamentos;
+using _1stPrototype.Interfaces;
 
 namespace _1stPrototype.Classes.Objetos
 {
     public class Human
     {
+        public static int IDADE_CRIANCA_DIAS = 5 * 365;
+        public static int IDADE_PRE_ADOLESCENTE_DIAS = 10 * 365;
+        public static int IDADE_ADOLESCENTE_DIAS = 14 * 365;
+        public static int IDADE_ADULTO_DIAS = 20 * 365;
+        public static int IDADE_MEIA_IDADE_DIAS = 50 * 365;
+        public static int IDADE_IDOSO_DIAS = 70 * 365;
+        public static int IDADE_INCAPAZ_DIAS = 90 * 365;
+
+        private List<ifaceFaseVidaAlterada> processaCrianca; // Eventos disparados ao atingir a fase "Criança".
+        private List<ifaceFaseVidaAlterada> processaPreAdolescente; // Eventos disparados ao atingir a fase "Pre Adolescente".
+        private List<ifaceFaseVidaAlterada> processaAdolescente; // Eventos disparados ao atingir a fase "Adolescente".
+        private List<ifaceFaseVidaAlterada> processaAdulto; // Eventos disparados ao atingir a fase "Adulto".
+        private List<ifaceFaseVidaAlterada> processaMeiaIdade; // Eventos disparados ao atingir a fase "Meia Idade".
+        private List<ifaceFaseVidaAlterada> processaIdoso; // Eventos disparados ao atingir a fase "Idoso".
+        private List<ifaceFaseVidaAlterada> processaIncapaz; // Eventos disparados ao atingir a fase "Incapaz".
+
+
         private int mintDiaNascimento; // Dia do Nascimento.
-        private int mintIdade; // Idade atual.
+        private int mintIdade; // Idade atual em dias.
+
+        private enumFaseVida efvFaseVida; // Fase da vida do Humano.
+
+        private bool blnVivo; // Indica que o humano está vivo.
         private enumSexo msxSexo; // Sexo do Humano.
 
         private DNA mdnaGenoma; // Código DNA que rege o individuo (funções principais).
@@ -71,6 +93,7 @@ namespace _1stPrototype.Classes.Objetos
         private float mfltInteligencia; // Overall dos atributos de inteligencia, resumo para o usuário.
         private float mfltSaude; // Saúde. Indica como o individuo tem cuidado da propria saude, presença de doenças, condicionamento fisico, etc.
         private float mfltBeleza; // Aparencia Visual. Atributos gerais de beleza.
+        private float mfltConsciencia; // Estado de consciencia. Alterado pelo uso de drogas.
 
         // Proeficiencias
         private float mfltProfLutaCorporal; // Proeficiencia a luta desarmada.
@@ -109,6 +132,9 @@ namespace _1stPrototype.Classes.Objetos
             newHuman.msxSexo = sexo;
             newHuman.mstrNome = name;
 
+            newHuman.blnVivo = true; // Nasce vivo.
+            newHuman.efvFaseVida = enumFaseVida.RECEM_NASCIDO; // Nascimento = recem nascido.
+
             if (surnamePai)
                 newHuman.mstrSobrenome = hmnPai.mstrSobrenome;
             else
@@ -117,11 +143,19 @@ namespace _1stPrototype.Classes.Objetos
             newHuman.mdnaGenoma = DNA.fundirGenoma(hmnPai.mdnaGenoma, hmnMae.mdnaGenoma);
             newHuman.morsOrientacaoSexual = enumOrientacaoSexual.Heterossexual;
             newHuman.mintIdade = 0;
-            //TODO: newHuman.mintDiaNascimento = xx; // Preencher!!
+            //TODO FIXME: newHuman.mintDiaNascimento = xx; // Preencher!!
 
             newHuman.mhmnParceiroAtual = null;
             newHuman.mlrlRelacionamentos = new List<RelacionamentoHumano>();
             newHuman.mlhmFilhos = new List<Human>();
+
+            newHuman.processaCrianca = new List<ifaceFaseVidaAlterada>();
+            newHuman.processaPreAdolescente = new List<ifaceFaseVidaAlterada>();
+            newHuman.processaAdolescente = new List<ifaceFaseVidaAlterada>();
+            newHuman.processaAdulto = new List<ifaceFaseVidaAlterada>();
+            newHuman.processaMeiaIdade = new List<ifaceFaseVidaAlterada>();
+            newHuman.processaIdoso = new List<ifaceFaseVidaAlterada>();
+            newHuman.processaIncapaz = new List<ifaceFaseVidaAlterada>(); 
 
             newHuman.mintSaldoDinheiro = 0;
 
@@ -158,6 +192,7 @@ namespace _1stPrototype.Classes.Objetos
             newHuman.mfltInteligencia = (float)Human.geraOverallInteligenciaNascimento(newHuman.mdnaGenoma); // Varios Fatores Geneticos + Saude + Natureza.
             newHuman.mfltSaude = 0.50f + (float)(DNA.obtemInfluenciadorSaude(newHuman.mdnaGenoma) * (0.3 / 1.9)) + (new Random().Next(0, 21) / 100); // Saúde. Default + Genetico + Natureza.
             newHuman.mfltBeleza = 0.40f + (float)(DNA.obtemInfluenciadorBeleza(newHuman.mdnaGenoma) * (0.4 / 1.9)) + (new Random().Next(0, 21) / 100); // Bebes são bonitos. Aplica Genetica + Naturza.
+            newHuman.mfltConsciencia = 1.00f; // Bebes não tem a consciencia afetada pelo uso de drogas.
 
             // Bebes tem poucas/nenhuma proeficiencia.
             newHuman.mfltProfLutaCorporal = 0.00f; // É só um bebe.
@@ -184,10 +219,84 @@ namespace _1stPrototype.Classes.Objetos
             newHuman.mfltTendDecisaoEmocional = (float)(0.06 - (DNA.obtemInfluenciadorEstabilidadeEmocional(newHuman.mdnaGenoma) * (0.06 / 1.9))); // Muito pouco, pela genética.
             newHuman.mfltTendPreguica = (float)(0.07 - (DNA.obtemInfluenciadorDedicacao(newHuman.mdnaGenoma) * (0.07 / 1.9))); // Muito pouco, pela genética.
 
+
             // ------- EM DESENVOLVIMENTO
             // TODO: TERMINAR.
 
             return newHuman;
+        }
+
+        public void IncreaseIdade()
+        {
+            if (!blnVivo)
+                return;
+
+            mintIdade += 1;
+
+            if (mintIdade > IDADE_INCAPAZ_DIAS && efvFaseVida != enumFaseVida.INCAPAZ)
+            {
+                efvFaseVida = enumFaseVida.INCAPAZ;
+
+                foreach (ifaceFaseVidaAlterada novaFase in processaIncapaz)
+                    novaFase.ProcessaNovaFase(this);
+            }
+            else if (mintIdade > IDADE_IDOSO_DIAS && efvFaseVida != enumFaseVida.IDOSO)
+            {
+                efvFaseVida = enumFaseVida.IDOSO;
+
+                foreach (ifaceFaseVidaAlterada novaFase in processaIdoso)
+                    novaFase.ProcessaNovaFase(this);
+            }
+            else if (mintIdade > IDADE_MEIA_IDADE_DIAS && efvFaseVida != enumFaseVida.MEIA_IDADE)
+            {
+                efvFaseVida = enumFaseVida.MEIA_IDADE;
+
+                foreach (ifaceFaseVidaAlterada novaFase in processaMeiaIdade)
+                    novaFase.ProcessaNovaFase(this);
+            }
+            else if (mintIdade > IDADE_ADULTO_DIAS && efvFaseVida != enumFaseVida.ADULTO)
+            {
+                efvFaseVida = enumFaseVida.ADULTO;
+
+                foreach (ifaceFaseVidaAlterada novaFase in processaAdulto)
+                    novaFase.ProcessaNovaFase(this);
+            }
+            else if (mintIdade > IDADE_ADOLESCENTE_DIAS && efvFaseVida != enumFaseVida.ADOLESCENTE)
+            {
+                efvFaseVida = enumFaseVida.ADOLESCENTE;
+
+                foreach (ifaceFaseVidaAlterada novaFase in processaAdolescente)
+                    novaFase.ProcessaNovaFase(this);
+            }
+            else if (mintIdade > IDADE_PRE_ADOLESCENTE_DIAS && efvFaseVida != enumFaseVida.PRE_ADOLESCENTE)
+            {
+                efvFaseVida = enumFaseVida.PRE_ADOLESCENTE;
+
+                foreach (ifaceFaseVidaAlterada novaFase in processaPreAdolescente)
+                    novaFase.ProcessaNovaFase(this);
+            }
+            else if (mintIdade > IDADE_CRIANCA_DIAS && efvFaseVida != enumFaseVida.CRIANCA)
+            {
+                efvFaseVida = enumFaseVida.CRIANCA;
+
+                foreach (ifaceFaseVidaAlterada novaFase in processaCrianca)
+                    novaFase.ProcessaNovaFase(this);
+            }
+        }
+
+        public enumFaseVida GetFaseVida()
+        {
+            return efvFaseVida;
+        }
+
+        public int GetIdade()
+        {
+            return mintIdade;
+        }
+
+        public bool IsVivo()
+        {
+            return blnVivo;
         }
 
         private static double geraOverallInteligenciaNascimento(DNA dna)
