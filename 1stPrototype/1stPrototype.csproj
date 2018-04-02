@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Classes\Objetos\DNA.cs" />
     <Compile Include="Classes\Objetos\Human.cs" />
+    <Compile Include="Classes\Objetos\Mundo.cs" />
     <Compile Include="Classes\Processadores\clsProcessaNovoDia.cs" />
     <Compile Include="Classes\Relacionamentos\EfeitoAcao.cs" />
     <Compile Include="Classes\Relacionamentos\RelacionamentoHumano.cs" />

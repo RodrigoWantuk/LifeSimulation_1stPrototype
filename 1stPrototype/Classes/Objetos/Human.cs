@@ -229,6 +229,7 @@ namespace _1stPrototype.Classes.Objetos
             return newHuman;
         }
 
+
         public void IncreaseIdade()
         {
             if (!blnVivo)
@@ -287,11 +288,6 @@ namespace _1stPrototype.Classes.Objetos
             }
         }
 
-        public enumFaseVida GetFaseVida()
-        {
-            return efvFaseVida;
-        }
-
         public int GetIdade()
         {
             return mintIdade;
@@ -300,6 +296,31 @@ namespace _1stPrototype.Classes.Objetos
         public bool IsVivo()
         {
             return blnVivo;
+        }
+
+        public enumFaseVida GetFaseVida()
+        {
+            return efvFaseVida;
+        }
+
+        public long ExecutandoAcao()
+        {
+            if (iacEmAndamento != null)
+                return lngFimAcaoTick;
+
+            return -1;
+        }
+
+        public void AtualizaAcao()
+        {
+            if(ExecutandoAcao() > 0 && Mundo.GetInstance().GetServerTick() >= ExecutandoAcao())
+            {
+                foreach (EfeitoAcao efeito in iacEmAndamento.ObtemEfeitos())
+                    efeito.DoAplicaEfeito(this);
+
+                iacEmAndamento = null;
+                lngFimAcaoTick = -1;
+            }
         }
 
         private static double geraOverallInteligenciaNascimento(DNA dna)
