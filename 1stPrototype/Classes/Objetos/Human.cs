@@ -58,69 +58,69 @@ namespace _1stPrototype.Classes.Objetos
         private int mintSaldoDinheiro; // Saldo total em conta.
 
         // Pilares do Conhecimento
-        private float mfltHumano; // Experiencia Humana do Ser. Pensamentos, Invencoes, Criacoes.
-        private float mfltEmpirico; // Conhecimento do mundo, da realidade diaria, sem envolver a teoria cientifica.
-        private float mfltFilosofico; // Reflexão do homem das suas ações do dia-a-dia.
-        private float mfltTeologico; // Perguntas que só a fé podem explicar.
-        private float mfltCientifico; // Conhecimento passivel de verificação. Usa métodos, leis, etc.
+        public float mfltHumano; // Experiencia Humana do Ser. Pensamentos, Invencoes, Criacoes.
+        public float mfltEmpirico; // Conhecimento do mundo, da realidade diaria, sem envolver a teoria cientifica.
+        public float mfltFilosofico; // Reflexão do homem das suas ações do dia-a-dia.
+        public float mfltTeologico; // Perguntas que só a fé podem explicar.
+        public float mfltCientifico; // Conhecimento passivel de verificação. Usa métodos, leis, etc.
 
         // Áreas do Conhecimento
-        private float mfltCienciasExatas; // Matematica, Astronomia, Fisica, etc;
-        private float mfltCienciasBiologicas; // Genetica, Zoologia, Oceanografia, etc;
-        private float mfltEngenharias; // Engenharias;
-        private float mfltCienciasSaude; // Medicina, Nutrição, Farmacia, Enfermagem, etc;
-        private float mfltCienciasAgrarias; // Agronomia, Zootecnia, Medicina Veterinaria, etc;
-        private float mfltCienciasSociais; // Direito, Administracao, Economia, Arquitetura, etc;
-        private float mfltCienciasHumanas; // Filosofia, Sociologia, Historia, etc;
-        private float mfltLinguistica; // Letras, Artes, etc;
+        public float mfltCienciasExatas; // Matematica, Astronomia, Fisica, etc;
+        public float mfltCienciasBiologicas; // Genetica, Zoologia, Oceanografia, etc;
+        public float mfltEngenharias; // Engenharias;
+        public float mfltCienciasSaude; // Medicina, Nutrição, Farmacia, Enfermagem, etc;
+        public float mfltCienciasAgrarias; // Agronomia, Zootecnia, Medicina Veterinaria, etc;
+        public float mfltCienciasSociais; // Direito, Administracao, Economia, Arquitetura, etc;
+        public float mfltCienciasHumanas; // Filosofia, Sociologia, Historia, etc;
+        public float mfltLinguistica; // Letras, Artes, etc;
 
         // Áreas do Cerebro - Lobos, Cortex
-        private float mfltCortexMotor; // Lobo Frontal, Movimentos.
-        private float mfltCortexPreFrontal; // Lobo Frontal, Precisao e velocidade de movimentos.
-        private float mfltLobosOccipitais; // Lobos Occipitais, Visão.
-        private float mfltLobosTemporais; // Audição.
-        private float mfltLobosParietais; // Sensações, sentidos como tato, dor, calor, labios, lingua, etc.
+        public float mfltCortexMotor; // Lobo Frontal, Movimentos.
+        public float mfltCortexPreFrontal; // Lobo Frontal, Precisao e velocidade de movimentos.
+        public float mfltLobosOccipitais; // Lobos Occipitais, Visão.
+        public float mfltLobosTemporais; // Audição.
+        public float mfltLobosParietais; // Sensações, sentidos como tato, dor, calor, labios, lingua, etc.
 
         // Big Five - Fatores da Personalidade
-        private float mfltInstabilidadeEmocional; // Estabilidade Emocional do Individuo. Tendencia a Raiva, Depressão.
-        private float mfltExtroversao; // Procura de Emoções Positivas e Companhia de Outros. Cheios de Energia.
-        private float mfltAgradabilidade; // Tendencia a ser compassivo ao inves de antagonista a ideias. Preocupado com Harmonia Social.
-        private float mfltConsciencialidade; // Autodisciplina, Orientação a Deveres e Objetivos.
-        private float mfltAberturaExperiencia; // Interesse por ideias fora do comum, emoção, aventuras, curiosidade, experiencias. Pessoas Imaginativas.
+        public float mfltInstabilidadeEmocional; // Estabilidade Emocional do Individuo. Tendencia a Raiva, Depressão.
+        public float mfltExtroversao; // Procura de Emoções Positivas e Companhia de Outros. Cheios de Energia.
+        public float mfltAgradabilidade; // Tendencia a ser compassivo ao inves de antagonista a ideias. Preocupado com Harmonia Social.
+        public float mfltConsciencialidade; // Autodisciplina, Orientação a Deveres e Objetivos.
+        public float mfltAberturaExperiencia; // Interesse por ideias fora do comum, emoção, aventuras, curiosidade, experiencias. Pessoas Imaginativas.
 
         // Parametros Humanos
-        private float mfltEnergia;  // Energia para atividades, trabalho, estudo.
-        private float mfltFelicidade; // Felicidade geral. Indica depressão, desanimo.
-        private float mfltFome; // Fome. Contribui para Energia, Felicidade e em casos extremos para saúde.
-        private float mfltInteligencia; // Overall dos atributos de inteligencia, resumo para o usuário.
-        private float mfltSaude; // Saúde. Indica como o individuo tem cuidado da propria saude, presença de doenças, condicionamento fisico, etc.
-        private float mfltBeleza; // Aparencia Visual. Atributos gerais de beleza.
-        private float mfltConsciencia; // Estado de consciencia. Alterado pelo uso de drogas.
+        public float mfltEnergia;  // Energia para atividades, trabalho, estudo.
+        public float mfltFelicidade; // Felicidade geral. Indica depressão, desanimo.
+        public float mfltFome; // Fome. Contribui para Energia, Felicidade e em casos extremos para saúde.
+        public float mfltInteligencia; // Overall dos atributos de inteligencia, resumo para o usuário.
+        public float mfltSaude; // Saúde. Indica como o individuo tem cuidado da propria saude, presença de doenças, condicionamento fisico, etc.
+        public float mfltBeleza; // Aparencia Visual. Atributos gerais de beleza.
+        public float mfltConsciencia; // Estado de consciencia. Alterado pelo uso de drogas.
 
         // Proeficiencias
-        private float mfltProfLutaCorporal; // Proeficiencia a luta desarmada.
-        private float mfltProfArmasBrancas; // Proeficiencia a luta com armas brancas.
-        private float mfltProfArmasFogo; // Proeficiencia a uso de armas de fogo.
-        private float mfltProfCarros; // Proeficiencia a direção de automóveis.
-        private float mfltProfMotos; // Proeficiencia a direção de motos.
-        private float mfltProfTecnologia; // Proeficiancia ao uso de tecnologia.
-        private float mfltProfSocial; // Proeficiencia a interações sociais.
-        private float mfltProfArtistica; // Proeficiencia a trabalhos artisticos.
-        private float mfltProfMusical; // Proeficiencia a trabalhos musicais.
-        private float mfltProfMatematica; // Proeficiencia a matematica e lógica.
-        private float mfltProfPesquisa; // Proeficiencia a pesquisa, a escrita, ao conhecimento.
-        private float mfltProfEspacial; // Proeficiencia a noção espacial e leis que o regem.
+        public float mfltProfLutaCorporal; // Proeficiencia a luta desarmada.
+        public float mfltProfArmasBrancas; // Proeficiencia a luta com armas brancas.
+        public float mfltProfArmasFogo; // Proeficiencia a uso de armas de fogo.
+        public float mfltProfCarros; // Proeficiencia a direção de automóveis.
+        public float mfltProfMotos; // Proeficiencia a direção de motos.
+        public float mfltProfTecnologia; // Proeficiancia ao uso de tecnologia.
+        public float mfltProfSocial; // Proeficiencia a interações sociais.
+        public float mfltProfArtistica; // Proeficiencia a trabalhos artisticos.
+        public float mfltProfMusical; // Proeficiencia a trabalhos musicais.
+        public float mfltProfMatematica; // Proeficiencia a matematica e lógica.
+        public float mfltProfPesquisa; // Proeficiencia a pesquisa, a escrita, ao conhecimento.
+        public float mfltProfEspacial; // Proeficiencia a noção espacial e leis que o regem.
 
         // Tendencias - Fatores para IA
-        private float mfltTendTrapaca; // Tendencia a trapacear.
-        private float mfltTendRoubo; // Tendencia a roubar.
-        private float mfltTendDrogasLeves; // Tendencia ao uso de cigarro / alcool.
-        private float mfltTendDrogasPesadas; // Tendencia ao uso de drogas ilícitas.
-        private float mfltTendEstudar; // Tendencia a permanecer estudando.
-        private float mfltTendFesta; // Tendencia a sair com amigos, festas, etc.
-        private float mfltTendSuicidio; // Tendencia a cometer suicidio. Definir threshold para IA cometer suicidio.
-        private float mfltTendDecisaoEmocional; // Tendencia a tomar decisões emocionais ao invés de lógicas.
-        private float mfltTendPreguica; // Tendencia a preguiça, procrastinação.
+        public float mfltTendTrapaca; // Tendencia a trapacear.
+        public float mfltTendRoubo; // Tendencia a roubar.
+        public float mfltTendDrogasLeves; // Tendencia ao uso de cigarro / alcool.
+        public float mfltTendDrogasPesadas; // Tendencia ao uso de drogas ilícitas.
+        public float mfltTendEstudar; // Tendencia a permanecer estudando.
+        public float mfltTendFesta; // Tendencia a sair com amigos, festas, etc.
+        public float mfltTendSuicidio; // Tendencia a cometer suicidio. Definir threshold para IA cometer suicidio.
+        public float mfltTendDecisaoEmocional; // Tendencia a tomar decisões emocionais ao invés de lógicas.
+        public float mfltTendPreguica; // Tendencia a preguiça, procrastinação.
 
         public static Human doBorn(Human hmnPai, Human hmnMae, String name, enumSexo sexo, bool surnamePai)
         {
