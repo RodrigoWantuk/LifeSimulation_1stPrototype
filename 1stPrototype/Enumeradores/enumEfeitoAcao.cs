@@ -18,7 +18,6 @@ namespace _1stPrototype.Enumeradores
         DEV_PILAR_CIENTIFICO,
 
         // Areas de Estudo
-        ESTUDO_GERAL,
         ESTUDO_EXATAS,
         ESTUDO_BIOLOGICAS,
         ESTUDO_ENGENHARIAS,
@@ -47,6 +46,7 @@ namespace _1stPrototype.Enumeradores
         ALTERA_INTELIGENCIA,
         ALTERA_SAUDE,
         ALTERA_BELEZA,
+        ALTERA_CONSCIENCIA,
 
         // Proeficiencias, quao bem executa um determinado tipo de ações
         DEV_PROF_LUTA_COPORTAL,
