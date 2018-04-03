@@ -229,7 +229,6 @@ namespace _1stPrototype.Classes.Objetos
             return newHuman;
         }
 
-
         public void IncreaseIdade()
         {
             if (!blnVivo)
@@ -333,7 +332,6 @@ namespace _1stPrototype.Classes.Objetos
                 (DNA.obtemInfluenciadorFacilidadeAprender(dna) * (0.01 / 1.9)) +
                 (new Random().Next(0, 10) / 1000); // Fator Natureza.
         }
-
         private static double geraFelicidadeNascimento(DNA dna)
         {
             return 0.40 +
@@ -342,7 +340,6 @@ namespace _1stPrototype.Classes.Objetos
                 (DNA.obtemInfluenciadorSocial(dna) * (0.1 / 1.9)) +
                 (new Random().Next(0, 10) / 100); // Fator Natureza.
         }
-
         private static double geraInstabilidadeEmocionalNascimento(DNA dna)
         {
             // Pendente 0,09 de influencia de criação. - 30%
